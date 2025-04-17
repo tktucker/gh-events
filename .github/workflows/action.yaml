@@ -1,12 +1,22 @@
 name: Events Demo
 on: [push, workflow_dispatch]
 jobs:
-    output:
-        runs-on: ubuntu-latest
-        steps:
-            - name: Output
-              run : echo "${{ toJSON(github) }}"
-            - name: Output2
-              env:
-                GITHUB_CONTEXT: ${{ toJSON(github.email) }}
-              run: echo "$GITHUB_CONTEXT"
+  one:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Dump GitHub context
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: echo "$GITHUB_CONTEXT"
+      - name: Dump job context
+        env:
+          JOB_CONTEXT: ${{ toJson(job) }}
+        run: echo "$JOB_CONTEXT"
+      - name: Dump steps context
+        env:
+          STEPS_CONTEXT: ${{ toJson(steps) }}
+        run: echo "$STEPS_CONTEXT"
+      - name: Dump email context
+        env:
+          STEPS_EMAIL: ${{ toJson(steps) }}
+        run: echo "$STEPS_EMAIL"
