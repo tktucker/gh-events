@@ -6,3 +6,8 @@ jobs:
         steps:
             - name: Output
               run : echo "${{ toJSON(github) }}"
+    output2:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Output2
+              run : echo "${{ toJSON(github.email) }}"
