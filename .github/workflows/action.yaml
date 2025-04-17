@@ -17,6 +17,4 @@ jobs:
           STEPS_CONTEXT: ${{ toJson(steps) }}
         run: echo "$STEPS_CONTEXT"
       - name: Dump email context
-        env:
-          STEPS_EMAIL: ${{ toJson(steps) }}
-        run: echo "$STEPS_EMAIL"
+        run: echo "$github.email"
