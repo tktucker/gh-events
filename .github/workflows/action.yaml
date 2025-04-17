@@ -18,3 +18,8 @@ jobs:
         run: echo "$STEPS_CONTEXT"
       - name: Dump email context
         run: echo  ${{ github.actor }}
+  two:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Dump me
+        run: echo "dump me"
