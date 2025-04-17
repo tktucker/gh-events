@@ -17,4 +17,4 @@ jobs:
           STEPS_CONTEXT: ${{ toJson(steps) }}
         run: echo "$STEPS_CONTEXT"
       - name: Dump email context
-        run: echo  ${{ github.email }}
+        run: echo  ${{ github.actor }}
